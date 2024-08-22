@@ -27,7 +27,11 @@ a {
     font-family: "Roboto", sans-serif;
     background-color: black;
     color: white;
-    height: 70px;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
 }
 
 .logo-section {
@@ -72,7 +76,7 @@ a {
     color: white;
     font-family: "Varela Round", sans-serif;
     display: flex;
-    margin: 23px auto;
+    margin: 70px auto;
     width: 70%;
     border-radius: 12px;
     padding-top: 15px;
@@ -81,17 +85,44 @@ a {
     background-size: cover;
 }
 
-.songItems {
+.songItemContainer {
+    margin-top: 74px;
+}
+
+.songItem {
     height: 50px;
     display: flex;
     background-color: transparent;
-    width: 40%;
-    margin: 15px 0;
+    color: #fff;
+    margin: 12px 0;
+    justify-content: flex-start;
+    align-items: center;
+    /* border-radius: 34px; */
+}
+
+.songItem img {
+    width: 43px;
+    margin: 0 20px;
+    /* border-radius: 34px; */
+}
+
+.songlistplay {
+    display: flex;
+    align-items: center;
+
+}
+
+.timestamp {
+    margin: 0 15px;
+}
+
+.timestamp i {
+    cursor: pointer;
 }
 
 .bottom {
     position: sticky;
-    height: 100px;
+    height: 70px;
     background-color: black;
     color: white;
     bottom: 0;
@@ -103,7 +134,7 @@ a {
 }
 
 .icons {
-    margin-top: 15px;
+    margin-top: 10px;
 
 }
 
@@ -112,5 +143,100 @@ a {
 }
 
 #myProgressbar {
-    width: 60vw;
+    width: 80vw;
+    height: 7px;
+    cursor: pointer;
+}
+
+.songInfo {
+    position: absolute;
+    left: 10vw;
+    font-family: 'Varela Round', sans-serif;
+    margin-top: 10px;
+}
+
+.songInfo img {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+.icons i {
+    font-size: 2rem;
+}
+
+
+@media screen and (max-width:900px) {
+    .songInfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #masterSongName {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header .nav-link {
+        display: none;
+    }
+
+    .header {
+        padding: 0;
+    }
+
+    .container .songs-left h1 {
+        font-size: 1.5rem;
+    }
+
+    .songs-left-items {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+    }
+
+    .nav-link .nav-links-items {
+
+        padding: 0 1rem;
+    }
+
+    #myProgressbar {
+        width: 60vw;
+    }
+
+    .songInfo {
+        left: 0;
+        padding-left: 16px;
+    }
+
+    .icons i {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:580px) {
+    #myProgressbar {
+        width: 50vw;
+    }
+
+    .songInfo {
+        width: 90px;
+    }
+
+    #masterSongName {
+        font-size: 0.6rem;
+    }
+
+    .name-time {
+        display: flex;
+        flex-direction: column;
+    }
 }
