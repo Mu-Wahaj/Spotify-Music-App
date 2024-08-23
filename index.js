@@ -1,7 +1,7 @@
 console.log("welcome to Spotify");
 let songsIndex = 0;
 let audioElement = new Audio("songs/1.mp3");
-let mastePlay = document.getElementById("masterPlay");
+let masterPlay = document.getElementById("masterPlay");
 let myProgressBar = document.getElementById("myProgressbar");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
 
@@ -83,19 +83,18 @@ songItems.forEach((element, i) => {
 masterPlay.addEventListener("click", () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
     audioElement.play();
-    mastePlay.classList.remove("fa-play-circle");
-    mastePlay.classList.add("fa-pause-circle");
+    masterPlay.classList.remove("fa-play-circle");
+    masterPlay.classList.add("fa-pause-circle");
     gif.style.opacity = 1;
   } else {
     audioElement.pause();
-    mastePlay.classList.remove("fa-pause-circle");
-    mastePlay.classList.add("fa-play-circle");
+    masterPlay.classList.remove("fa-pause-circle");
+    masterPlay.classList.add("fa-play-circle");
     gif.style.opacity = 0;
   }
 });
 
 audioElement.addEventListener("timeupdate", () => {
-  console.log("timeupdate");
   //update seeekbar
   let progress = parseInt(
     (audioElement.currentTime / audioElement.duration) * 100
@@ -149,11 +148,12 @@ document.getElementById("next").addEventListener("click", () => {
   masterPlay.classList.add("fa-pause-circle");
 });
 document.getElementById("previous").addEventListener("click", () => {
-  if (songsIndex <= 12) {
-    songsIndex = 0;
+  if (songsIndex <= 0) {
+    songsIndex = 12;
   } else {
     songsIndex -= 1;
   }
+  console.log("working");
   audioElement.src = `songs/${songsIndex + 1}.mp3`;
   masterSongName.innerText = songs[songsIndex].songName;
   audioElement.currentTime = 0;
